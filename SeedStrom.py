@@ -5,7 +5,7 @@ a = 0
 for x in range(5):
     while True:
         # Number Generation
-        seed_number = random.randint(99, 9999999)
+        seed_number = random.randint(1111111, 9999999)
         random.seed(seed_number)
         randd = random.randrange(999, 100000, 2)
         # Created file
@@ -30,9 +30,10 @@ for x in range(5):
                     print(f"The seed Number: {seed_number} \nThe Random number is: {randd}")
         User_Input = input("Any seed Number: ")
         # Search in the file
+        count = len(User_Input)
         if User_Input == "":
             pass
-        else:
+        elif count < 7 and count > 7:
             with open("counter.txt", "r") as f:
                 f.seek(0)
                 cont = f.read()
@@ -44,8 +45,9 @@ for x in range(5):
                             print(line)
                             if i + 1 < len(lines):
                                 print(lines[i + 1],"\nOld data Fetched")
-                else:
-                    print("Seed Number is Not available\n")
+            
+        else:
+            print("please use the exact number")
         a += 1
         if a == 5:
             break
